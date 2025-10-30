@@ -5,14 +5,16 @@ import { UseDefferedValue } from './hooks/UseDeffereValue';
 import UseTransitionHook from './hooks/UseTransitionHook';
 import UseRef from './hooks/UseRef';
 import UseContext from './hooks/UseContext';
+import UseOptimistic from './hooks/UseOptimistic';
 
 function App() {
   return (
     <div className="App">
       {/* <UseDefferedValue></UseDefferedValue> */}
       {/* <UseTransitionHook></UseTransitionHook> */}
-      <UseRef />
-      <UseContext />
+      {/* <UseRef /> */}
+      {/* <UseContext /> */}
+      <UseOptimistic/>
     </div>
   );
 }
