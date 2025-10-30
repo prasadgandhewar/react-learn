@@ -3,14 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import { UseDefferedValue } from './hooks/UseDeffereValue';
 import UseTransitionHook from './hooks/UseTransitionHook';
-import UseOptimisticHook from './hooks/UseOptimisticHook';
+import UseRef from './hooks/UseRef';
+import UseContext from './hooks/UseContext';
+import UseOptimistic from './hooks/UseOptimistic';
 
 function App() {
   return (
     <div className="App">
       {/* <UseDefferedValue></UseDefferedValue> */}
       {/* <UseTransitionHook></UseTransitionHook> */}
-      { <UseOptimisticHook></UseOptimisticHook> }
+      {/* <UseRef /> */}
+      {/* <UseContext /> */}
+      <UseOptimistic/>
     </div>
   );
 }
