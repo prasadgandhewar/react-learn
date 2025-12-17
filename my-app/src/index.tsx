@@ -3,17 +3,39 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import ErrorPage from './core/error-page';
+import ErrorBoundry from './core/ErrorBoundry';
+import Contact from './components/Contact';
+import { Provider } from 'react-redux';
+import { persister, store } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
+const router = createBrowserRouter([
+  { path: '/', element: <App></App>, errorElement: <ErrorPage></ErrorPage>, loader: dataLoader },
+  { path: '/home/:homec', element: <h1>Hello children</h1> },
+  {
+    path: '/contact', element: <Contact></Contact>, errorElement: <ErrorPage></ErrorPage>, loader: dataLoader, children: [
+      { path: ':contactno', element: <h2>Contact children</h2> },
+      { path: ':contactno/:name', element: <h2>Contact children with name</h2> }
+    ]
+  }
+])
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+function dataLoader() {
+  console.log("executed loader");
+  return 'Data is loaded';
+}
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate persistor={persister}>
+        <ErrorBoundry fallback={<h1>Something is wrong...</h1>}>
+          <RouterProvider router={router} />
+        </ErrorBoundry>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -11,17 +11,17 @@ const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 export default function UseActionState() {
     const [data, action, isPending] = useActionState<any, any>(myFunction, []);
 
-    const doFilter = useCallback((data: any) => {
-        if (data) {
-            const filtered = data.filter((item: any) => item.firstname && item.firstname.startsWith('A'));
-            console.log('Filtered Data:', filtered);
-        }
-    }, []);
+    // const doFilter = useCallback((data: any) => {
+    //     if (data) {
+    //         const filtered = data.filter((item: any) => item.firstname && item.firstname.startsWith('A'));
+    //         console.log('Filtered Data:', filtered);
+    //     }
+    // }, []);
 
-    useEffect(() => {
-        doFilter(data);
-    }, [data, doFilter]);
-
+    // useEffect(() => {
+    //     doFilter(data);
+    // }, [data, doFilter]);
+    console.log(data);
     return (
         <>
             <div>UseActionState</div>
