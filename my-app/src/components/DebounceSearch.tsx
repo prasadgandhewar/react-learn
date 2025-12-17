@@ -27,13 +27,20 @@ export const DebounceSearch = () => {
         fetchUsers();
     }, [])
 
+    let filteredResult = users;
+    if (searchTerm === debouncedSearch) {
+        filteredResult = users?.filter(user => user?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()));
+    }
+
     // Solution 1 for search - Recommnded - no use of useEffect and useMemo will give better result.
-    const filteredResult = useMemo(() => {
-         if (!debouncedSearch) {
-            return users;
-        }
-        return users?.filter(user => user?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()));
-    }, [debouncedSearch, users])
+    // const filteredResult = useMemo(() => {
+    //      if (!debouncedSearch) {
+    //         return users;
+    //     }
+    //     return users?.filter(user => user?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()));
+    // }, [debouncedSearch, users])
+
+    //const filteredResult = !debouncedSearch ? users : users?.filter(user => user?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()));
 
     // Solution 2 for search - using useEffect.
     

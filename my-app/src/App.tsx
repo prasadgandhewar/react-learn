@@ -15,6 +15,9 @@ import { CounterPlain } from './components/Counter-plain';
 import { ToggleText } from './components/ToggleText';
 import { SimpleForm } from './components/SimpleForm';
 import { DebounceSearch } from './components/DebounceSearch';
+import { DataFlow } from './components/DataFlow';
+import { CounterWithReducer } from './components/CounterWithReducer';
+import { DynamicForm } from './components/DynamicForm';
 
 function App() {
   const data = useLoaderData();
@@ -22,7 +25,12 @@ function App() {
   return (
     
     <div className="App">
-
+        <DynamicForm></DynamicForm>
+        <hr></hr>
+        <CounterWithReducer></CounterWithReducer>
+        <hr></hr>
+        <DataFlow></DataFlow>
+        <hr></hr>
         <DebounceSearch></DebounceSearch>
         <hr></hr>
         <CounterPlain></CounterPlain> 
