@@ -13,6 +13,8 @@ import { useLoaderData } from 'react-router-dom';
 import Counter from './components/Counter';
 import { CounterPlain } from './components/Counter-plain';
 import { ToggleText } from './components/ToggleText';
+import { SimpleForm } from './components/SimpleForm';
+import { DebounceSearch } from './components/DebounceSearch';
 
 function App() {
   const data = useLoaderData();
@@ -21,9 +23,13 @@ function App() {
     
     <div className="App">
 
+        <DebounceSearch></DebounceSearch>
+        <hr></hr>
         <CounterPlain></CounterPlain> 
         <hr></hr>
         <ToggleText></ToggleText>
+        <hr></hr>
+        <SimpleForm></SimpleForm>
         {/* <Counter></Counter> */}
 
         {/* <UseDefferedValue></UseDefferedValue> */}
