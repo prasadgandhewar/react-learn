@@ -18,6 +18,8 @@ import { DebounceSearch } from './components/DebounceSearch';
 import { DataFlow } from './components/DataFlow';
 import { CounterWithReducer } from './components/CounterWithReducer';
 import { DynamicForm } from './components/DynamicForm';
+import { InfiniteScroll } from './components/InfiniteScrollWithHook';
+import { InfiniteSCroll2 } from './components/InfiniteScroll2';
 
 function App() {
   const data = useLoaderData();
@@ -25,14 +27,16 @@ function App() {
   return (
     
     <div className="App">
+        <InfiniteScroll></InfiniteScroll>
+        <hr></hr>
         <DynamicForm></DynamicForm>
         <hr></hr>
         <CounterWithReducer></CounterWithReducer>
         <hr></hr>
         <DataFlow></DataFlow>
         <hr></hr>
-        <DebounceSearch></DebounceSearch>
-        <hr></hr>
+        {/* <DebounceSearch></DebounceSearch>
+        <hr></hr> */}
         <CounterPlain></CounterPlain> 
         <hr></hr>
         <ToggleText></ToggleText>
