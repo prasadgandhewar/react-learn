@@ -20,6 +20,8 @@ import { CounterWithReducer } from './components/CounterWithReducer';
 import { DynamicForm } from './components/DynamicForm';
 import { InfiniteScroll } from './components/InfiniteScrollWithHook';
 import { InfiniteSCroll2 } from './components/InfiniteScroll2';
+import { UserWithLogger } from './components/LoggerHOC';
+import { ComponentReloadTest } from './components/ComponentReloadTest';
 
 function App() {
   const data = useLoaderData();
@@ -27,6 +29,10 @@ function App() {
   return (
     
     <div className="App">
+      <ComponentReloadTest></ComponentReloadTest>
+      <hr></hr>
+      <UserWithLogger></UserWithLogger>
+      <hr></hr>
         <InfiniteScroll></InfiniteScroll>
         <hr></hr>
         <DynamicForm></DynamicForm>
